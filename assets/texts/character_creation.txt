@@ -1,0 +1,5 @@
+Vítej při výtváření tvého charakteru, nyní si budeš volit
+zaměření tvého charakteru. Počáteční předměty v inventáři
+jsou závislé na tvém výběru zaměření, dále se liší síla a
+počáteční síla tvého brnění, které tě chrání před útoky.
+Vybírej s rozmyslem!

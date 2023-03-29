@@ -1,0 +1,55 @@
+Progtest
+--------
+Naprogramujte engine pro textové RPG (gamebook)
+
+Váš engine:
+    ze souboru nahraje definici světa (lokace, přechody mezi lokacemi, události, rozhovory, věci, příšery, ...)
+    umožní vytvořit herní postavu (její atributy a schopnosti) a následnou hru
+    implementuje jednoduchý soubojový systém a inventář
+    umožňuje ukládat a načítat rozehrané hry
+    umožňuje interakci světa volitelným způsobem (volba u nabídky, klíčova slova ala Zork nebo Albion, ...)
+
+Kde lze využít polymorfismus? (doporučené)
+
+    Soubojové vlastnosti: postava, příšera, stroj (např. past, bomba,...)
+    Efekty akcí: souboje, události (pád ze stromu,...), přechod do jiné místnosti
+    Inventář: postava, batoh (slouží jako věc i inventář zároveň), toulec, kapsa
+
+
+
+Upřesnění
+---------
+Hra je v žánru fantasy. Hráč má za začátku hry možnost vytvořit si postavu a vybrat si na např. 
+počáteční obsah inventáře. Jelikož se děj odehrává ve fantasy světě, obsahuje různé druhy zbraní
+na close combat (meč, nůž, sekera) a také zbraně na dálku (luk s šípy).  Příběh je
+ovlivňovám přítomností těchto předmětů v inventáři. Některý z bojů je tedy možné ukončit velmi
+rychle dobrou volbou zbraně. V průběhu hry svádí postava mnoho soubojů. Bude tedy implementován
+jednoduchý soubojí systém fungující s pomocí generace náhodných čísel, ale zároveň velmi závislý
+na jednotlivých akcích uživatele jako je například výše zminěná volba zbraně. 
+Dále jsou jednotlivé boje závislé na síle, počtu životů a síle brnění. Boj je většinou s
+nějakými druhy příšer a některé boje jsou s lidmi (Rhaaba, Wendigo, Lidská rasa). 
+Dále je potřeba implementovat samotný příběh a průchod dějem. Na začátku návrat hrdiny, následuje
+hlavní zápletka a příběh následně končí 2 různými způsoby. Pohyb příběhem se odvijí z části od
+voleb hráče. Hráč si sám vybírá, do jaké lokace se přesune a z části, co v ní bude dělat.
+V souborech hry půjde upravit síla jednotlivých monster a postav. Dále se do souborů ukladá aktuální
+stav hry jako je lokace, předchozí volby a stav inventáře.
+
+
+Polymorphismus
+--------------
+První polymorphismus se nachází u zbraní. Jelikož je každá zbraň trochu jiná, ale všechny mají
+možnost udělovat poškození, je ve hře implementována metoda Attack(), která pro každou zbraň
+při zavolání metody Attack() udělá něco odlišného. Dobrý příklad je třeba rozdíl mezi mečem, sekerou.
+Meč není závislý na brnění oběti, zatímco u sekery je potřeba zkontrolovat, jaká
+je hodnota brnění oběti. Dále nůž není na rozdíl od předchozích dvou závislý na síle útočníka, ale
+spíše je důležité jeho použití na vhodnou oběť. S lukem poté nelze ublížit oběti, zblízka a také
+nelze útočit na oběť s velmi silným brněním. Tato myšlenka bude implementována díky třídám Item,
+Weapon, Sword, Axe, Knife, Bow. Weapon dědí vlastnosti Item a Sword, Axe, Knife a Bow poté dědí
+vlastnosti třídy Weapon. Třída weapon má virtual metodu attac(), která je pak už odlišně
+implementována v .cpp souborech jednotlivých zbraní.
+Další polymorphismus je u nepřátelských Entit. Entita je buď Rhaaba, Wendigo nebo člověk.
+Polymorphismus se zde vyskytuje opět v bojích. Každá z těchto Entit útočí jinak a má
+odlišné vlastnosti. Všechny zdědí vlastnosti třídy Entity, která obsahuje virtual metodu
+attack(), která se pak implementuje v cpp souborech jednotlivých Entit. Třída Rhaaba
+ignoruje při útočení hodnotu brnění oběti, ale sama žádné brnění nemá. Wendigo má zase
+implementovanou metodu heal(), která má šanci na zavolání 1/10 při každém útoku.

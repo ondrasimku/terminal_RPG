@@ -1,0 +1,19 @@
+1. Warrior (Meč, 3x Health Potion, Nůž, Lektvar síly)
++ Největší výhodou warriora je jeho umění boje s mečem. Jeho
+údery mečem, zocelené žárem mnoha vyhraných bitev, prorazí jakékoliv
+brnění protivníka.
++ Některé jeho údery mohou zasadit kritický zásah.
+
+2. Paladin (Sekera, 3x Health Potion, Nůž, Lektvar síly)
++ Paladin od pradávna přináší spravedlnost do míst, kde panuje
+křivda a nespravedlnost. V bojích bojuje srdcem, což mu přináší
+i sílu fyzickou. Jedná se o velmi silného a schopného bojovníka.
++ Pokud se při souboji s Paladinem Wendigo uzdraví, díky
+schopnosti od elfské vládkyně Galadriel Wendigo ihned umře.
+
+3. Hunter (Luk, 3x Health Potion, Nůž)
++ Hunter je velmi zkušený při pohybu v přírodě. Každá jeho
+akce je v harmonii s přírodou. Vyniká v boji na dálku. Žádný
+z jeho šípů nemine cíl.
++ Některé jeho šípy/údery mohou zasadit kritický zásah
++ Kritický zásah šípem oběť ihned usmrtí
